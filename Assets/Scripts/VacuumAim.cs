@@ -6,7 +6,7 @@ public class VacuumAim : MonoBehaviour
 {   
     public Transform vacuum;
     float offset = -90;
-    float rotSpeed =3f;
+    public float rotSpeed = 1f;
 
     private Transform aimTransform;
 
@@ -38,14 +38,14 @@ public class VacuumAim : MonoBehaviour
         }
         else
         {
-
+            vacuum.transform.Rotate(Vector3.zero);
         }
 
     }
 
     bool Clockwise()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.V))
         {
             return true;
         }
@@ -54,7 +54,7 @@ public class VacuumAim : MonoBehaviour
 
     bool CounterClockwise()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.C))
         {
             return true;
         }

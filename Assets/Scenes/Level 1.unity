@@ -661,6 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vacuum: {fileID: 1666717092}
+  rotSpeed: 3
 --- !u!1 &794811884
 GameObject:
   m_ObjectHideFlags: 0
