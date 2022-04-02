@@ -46,8 +46,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		bool wasGrounded = m_Grounded;
-		m_Grounded = false;
+		
 
 		//Debug.Log(m_Grounded);
 	}
@@ -125,13 +124,13 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (IsGrounded() && jump)
+		if (m_Grounded && jump)
 		{
 			// Add a vertical force to the player.
-			m_Grounded = false;
 			Vector2 temp = new Vector3(m_Rigidbody2D.velocity.x, 0);
 			m_Rigidbody2D.velocity = temp;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_Grounded = false;
 		}
 	}
 
@@ -146,4 +145,11 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void SetGrounded(bool val)
+	{
+		Debug.Log("Setting grounded to " + val);
+		m_Grounded = val;
+	}
+
 }
