@@ -11,9 +11,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKey(KeyCode.A))
+        {
+            horizontalMove = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            horizontalMove = 1;
+        }
+        else
+        {
+            horizontalMove = 0;
+        }
+        //horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
             jump = true;
         }
@@ -21,10 +34,5 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove, false, jump);
         jump = false;
     }
-
-    void FixedUpdate()
-    {
-
-        
-    }
+    
 }

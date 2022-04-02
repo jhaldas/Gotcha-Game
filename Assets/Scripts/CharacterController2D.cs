@@ -49,13 +49,13 @@ public class CharacterController2D : MonoBehaviour
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
-		Debug.Log(m_Grounded);
+		//Debug.Log(m_Grounded);
 	}
 
 
 	public bool IsGrounded()
 	{
-		if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+		if (Physics2D.OverlapCircle(m_GroundCheck.position, k_CeilingRadius, m_WhatIsGround))
 		{
 			return true;
 		}
@@ -115,13 +115,13 @@ public class CharacterController2D : MonoBehaviour
 			if (move > 0 && !m_FacingRight)
 			{
 				// ... flip the player.
-				Flip();
+				//Flip();
 			}
 			// Otherwise if the input is moving the player left and the player is facing right...
 			else if (move < 0 && m_FacingRight)
 			{
 				// ... flip the player.
-				Flip();
+				//Flip();
 			}
 		}
 		// If the player should jump...
