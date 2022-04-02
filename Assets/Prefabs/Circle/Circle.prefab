@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1227867821003715819}
   - component: {fileID: 147240104975795162}
   - component: {fileID: 3032441931579962395}
-  - component: {fileID: 5196619721795484915}
+  - component: {fileID: 135820055}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,8 +99,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: e6a6da4839ba325438fa8b1f30894d3a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5196619721795484915
+--- !u!114 &135820055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7515666700176045930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582cba5e426330849b0758a3a4ed6e2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 47e1c2e42217dc9489b25f181ffe5b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballAcceleration: 1
-  startSpeed: 1
+  player: {fileID: 0}
+  launchVector: {x: 0, y: 0, z: 0}
+  vacuumEntrance: {fileID: 0}
+  rb: {fileID: 147240104975795162}
+  launchPower: 5

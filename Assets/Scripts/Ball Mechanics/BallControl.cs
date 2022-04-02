@@ -12,7 +12,7 @@ public class BallControl : MonoBehaviour
     Vector3 offset;
     bool launch = false;
     public Rigidbody2D rb;
-    public float launchPower = 2f;
+    [SerializeField] private float launchPower = .2f;
     bool wasGrabbed = false;
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class BallControl : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 0.5f;
+            rb.gravityScale = 0;
         }
     }
     void FixedUpdate()
