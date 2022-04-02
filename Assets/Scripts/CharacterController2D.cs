@@ -12,9 +12,9 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+	const float k_GroundedRadius = 1f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
-	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
+	const float k_CeilingRadius = 1f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
@@ -46,8 +46,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		bool wasGrounded = m_Grounded;
-		m_Grounded = false;
+		
 
 		//Debug.Log(m_Grounded);
 	}
@@ -55,7 +54,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public bool IsGrounded()
 	{
-		if (Physics2D.OverlapCircle(m_GroundCheck.position, k_CeilingRadius, m_WhatIsGround))
+		if (Physics2D.OverlapCircle(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround))
 		{
 			return true;
 		}
@@ -125,13 +124,13 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (IsGrounded() && jump)
+		if (m_Grounded && jump)
 		{
 			// Add a vertical force to the player.
-			m_Grounded = false;
 			Vector2 temp = new Vector3(m_Rigidbody2D.velocity.x, 0);
 			m_Rigidbody2D.velocity = temp;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_Grounded = false;
 		}
 	}
 
@@ -146,4 +145,11 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void SetGrounded(bool val)
+	{
+		Debug.Log("Setting grounded to " + val);
+		m_Grounded = val;
+	}
+
 }
