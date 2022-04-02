@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public bool gameStarted;
+    public bool gamePaused;
     public GameObject player1;
     public GameObject player2;
 
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameStarted = false;
+        gamePaused = false;
     }
 
     void Update()
@@ -38,18 +40,31 @@ public class GameController : MonoBehaviour
 
     public void PauseGame()
     {
+        gamePaused = true;
+        Time.timeScale = 0;
+    }
 
+    public void UnpauseGame()
+    {
+        gamePaused = false;
+        Time.timeScale = 1;
     }
 
     private IEnumerator Countdown(float duration)
     {
-        while(duration > 0)
+        while(duration >= 0)
         {
             timer.text = duration.ToString();
 
             yield return new WaitForSeconds(1f);
 
             duration--;
+
+            if(duration == 0)
+            {
+
+            }
+
         }
     }
 }

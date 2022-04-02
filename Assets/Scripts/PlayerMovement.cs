@@ -42,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(horizontalMove, false, jump);
             jump = false;
         }
-        else 
+
+        else
         {
             rb.gravityScale = 0;
         }
