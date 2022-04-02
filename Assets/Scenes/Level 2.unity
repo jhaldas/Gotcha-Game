@@ -257,10 +257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 181761152, guid: ae1edf4f1bc357f408fd4846561fd797, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2228988472130644777, guid: ae1edf4f1bc357f408fd4846561fd797, type: 3}
       propertyPath: m_Name
       value: Player
@@ -638,17 +634,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &854319341 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 681682051, guid: ae1edf4f1bc357f408fd4846561fd797, type: 3}
-  m_PrefabInstance: {fileID: 184801419}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc989eae123c2c44aba64c87c3aa5883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1190891597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,53 +1045,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1788040785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 181761151, guid: ae1edf4f1bc357f408fd4846561fd797, type: 3}
-  m_PrefabInstance: {fileID: 184801419}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1788040787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788040785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f88c23547a2f79448d0edec80946b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMove: {fileID: 854319341}
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!61 &1788040788
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788040785}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.53974867}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.10503054}
-  m_EdgeRadius: 0
 --- !u!1 &1901798239
 GameObject:
   m_ObjectHideFlags: 0
