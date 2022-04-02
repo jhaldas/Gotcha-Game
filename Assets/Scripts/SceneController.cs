@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public string menu = "Menu";
-    public string levelSelection = "LevelSelection";
+    public string levelSelect = "Level Select";
     public string options = "Options";
+
+    public string level1 = "Level 1";
+    public string level2 = "Level 2";
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(levelSelection);
+        SceneManager.LoadScene(levelSelect);
     }
 
     public void Menu()
@@ -24,7 +27,14 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(options);
     }
-
+    public void Level1()
+    {
+        SceneManager.LoadScene(level1);
+    }
+    public void Level2()
+    {
+        SceneManager.LoadScene(level2);
+    }
     public void Exit()
     {
         Application.Quit();
