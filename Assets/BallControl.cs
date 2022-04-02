@@ -29,7 +29,7 @@ public class BallControl : MonoBehaviour
         if(isHeld)
         {
             this.transform.position = vacuumEntrance.transform.position;
-            this.transform.rotation = vacuumEntrance.transform.rotation;
+            //this.transform.rotation = vacuumEntrance.transform.rotation;
             rb.gravityScale = 0;
         }
         else

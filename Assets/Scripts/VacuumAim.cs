@@ -8,13 +8,7 @@ public class VacuumAim : MonoBehaviour
     float offset = -90;
     public float rotSpeed = 1f;
 
-    private Transform aimTransform;
-
     // Start is called before the first frame update
-    void Start()
-    {
-        aimTransform = transform.Find("Aim");
-    }
 
     // Update is called once per frame
     void Update()
