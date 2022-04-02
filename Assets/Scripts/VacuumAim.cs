@@ -6,7 +6,7 @@ public class VacuumAim : MonoBehaviour
 {   
     public Transform vacuum;
     float offset = -90;
-    public float rotSpeed = 1f;
+    private float rotSpeed = 3f;
 
     // Start is called before the first frame update
 
