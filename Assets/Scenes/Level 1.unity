@@ -1503,6 +1503,22 @@ PrefabInstance:
       propertyPath: player2BallRespawnPoint
       value: 
       objectReference: {fileID: 2036624098}
+    - target: {fileID: 5065027140740162989, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065027140740162989, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 885
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065027140740162989, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065027140740162989, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7062236917220952711, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 1
@@ -1523,6 +1539,18 @@ PrefabInstance:
     - target: {fileID: 8732170546942732082, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
       propertyPath: m_Name
       value: Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732170546942732089, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
+      propertyPath: suckButton
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732170546942732089, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
+      propertyPath: clockwiseButton
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732170546942732089, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
+      propertyPath: counterClockwiseButton
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 8732170546942732091, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
       propertyPath: m_RootOrder
@@ -1567,6 +1595,14 @@ PrefabInstance:
     - target: {fileID: 8732170546942732091, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732170546942732094, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
+      propertyPath: jumpKey
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732170546942732094, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
+      propertyPath: rightKey
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 8732170546942732094, guid: 0d31d3675f3dd0c4392d2110480945a2, type: 3}
       propertyPath: gameController

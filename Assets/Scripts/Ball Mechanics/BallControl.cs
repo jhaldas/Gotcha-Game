@@ -33,6 +33,7 @@ public class BallControl : MonoBehaviour
     {
         if(isHeld)
         {
+            wasGrabbed = true;
             this.transform.position = vacuumEntrance.transform.position;
             //this.transform.rotation = vacuumEntrance.transform.rotation;
         }
@@ -73,15 +74,17 @@ public class BallControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        if(collisionInfo.gameObject.tag == "Player 1")
+        if(collisionInfo.gameObject.tag == "Player 1" && wasGrabbed)
         {  
             SoundManagerScript.PlaySound("dead");
             gameController.player2Scores();
+            wasGrabbed = false;
         }
-        if(collisionInfo.gameObject.tag == "Player 2")
+        if(collisionInfo.gameObject.tag == "Player 2" && wasGrabbed)
         {  
             SoundManagerScript.PlaySound("dead");
             gameController.player1Scores();
+            wasGrabbed = false;
         }
     }
 
