@@ -22,12 +22,13 @@ public class VacuumAim : MonoBehaviour
     public float suckDepletionRate;
     public bool isSucking;
     public Transform suckMeter;
+    bool holdingBall = false;
 
     public KeyCode clockwiseButton = KeyCode.V;
     public KeyCode counterClockwiseButton = KeyCode.C;
     public KeyCode suckButton = KeyCode.Space;
     public Coroutine cooldownCoroutine;
-    public float cooldownTimer = 0;
+    public float cooldownTimer = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class VacuumAim : MonoBehaviour
         else
         {
             RegenSuck();
+            anim.SetBool("isSucking", false);
         }
 
         if(Clockwise())
@@ -114,12 +116,14 @@ public class VacuumAim : MonoBehaviour
             {
                 BallControl bc = collisionInfo.GetComponent<BallControl>();
                 bc.isHeld = true;
+                holdingBall = true;
             }
             else if(collisionInfo.GetComponent<BallControl>().isHeld == true)
             {
                 BallControl bc = collisionInfo.GetComponent<BallControl>();
                 bc.isHeld = false;
                 bc.launch = true;
+                holdingBall = false;
             }
 
         }
@@ -141,19 +145,27 @@ public class VacuumAim : MonoBehaviour
 
     public void DepleteSuck()
     {
-        cooldownTimer = 3;
+        cooldownTimer = 2;
         if(cooldownCoroutine != null)
         {
             StopCoroutine(cooldownCoroutine);
         }
         cooldownCoroutine = StartCoroutine(Cooldown(2));
 
-        if(suckLeft >= 0)
+        if(suckLeft > 0)
         {
-            suckLeft -= suckDepletionRate * Time.deltaTime;  
+            suckLeft -= suckDepletionRate * Time.deltaTime;
+            if(!holdingBall)
+            {
+                anim.SetBool("isSucking", true);
+            }else
+            {
+                anim.SetBool("isSucking", false);
+            }
         }
         else
         {
+            anim.SetBool("isSucking", false);
             suckLeft = 0;
         }
     }
