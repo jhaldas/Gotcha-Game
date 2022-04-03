@@ -23,9 +23,11 @@ public class GameController : MonoBehaviour
     public Text timer;
 
     public int timeLeft;
-    public int startTime = 60;
+    public int startTime;
     public Text player1ScoreText;
     public Text player2ScoreText;
+    public GameObject winScreen;
+    public Text winScreenText;
 
 
     // Start is called before the first frame update
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
         gameStarted = false;
         gamePaused = false;
         Time.timeScale = 1;
+        timeLeft = startTime;
     }
 
     void Update()
@@ -61,7 +64,23 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 0;
 
+        winScreen.SetActive(true);
+
+        if(player1Score > player2Score)
+        {
+            winScreenText.text = "Player 1 Wins!";
+        }
+        else if(player2Score > player1Score)
+        {
+            winScreenText.text = "Player 2 Wins!";
+        }
+        else
+        {
+            winScreenText.text = "TIE!";
+        }
+        
     }
 
     private IEnumerator Countdown(float duration)
@@ -76,7 +95,7 @@ public class GameController : MonoBehaviour
 
             if(duration == 0)
             {
-
+                GameOver();
             }
 
         }
