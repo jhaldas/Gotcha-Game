@@ -5,7 +5,8 @@ using UnityEngine;
 public class VacuumAim : MonoBehaviour
 {   
     public Transform vacuum;
-    public Transform vacuumHitBox;
+    public Transform vacuumEntrance;
+
     float offset = -90;
     [SerializeField] private float rotSpeed = 3f;
 
@@ -39,16 +40,16 @@ public class VacuumAim : MonoBehaviour
             vacuum.transform.Rotate(Vector3.zero);
         }
 
-        if(vacuumHitBox.transform.position.x > center.transform.position.x)
-        {
-            facingRight = false;
-        }
-        else
+        if(vacuumEntrance.transform.position.x > center.transform.position.x)
         {
             facingRight = true;
         }
+        else
+        {
+            facingRight = false;
+        }
 
-        Debug.Log("Vacuum X: " + vacuumHitBox.transform.position.x + " | " + "Center X: " + center.transform.position.x);
+        Debug.Log("Vacuum X: " + vacuumEntrance.transform.position.x + " | " + "Center X: " + center.transform.position.x);
     }
 
 
