@@ -30,7 +30,7 @@ public class VacuumAim : MonoBehaviour
     public KeyCode counterClockwiseButton = KeyCode.C;
     public KeyCode suckButton = KeyCode.Space;
     public Coroutine cooldownCoroutine;
-    public float cooldownTimer = 2;
+    public float cooldownTimer = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -149,12 +149,12 @@ public class VacuumAim : MonoBehaviour
 
     public void DepleteSuck()
     {
-        cooldownTimer = 2;
+        cooldownTimer = 1;
         if(cooldownCoroutine != null)
         {
             StopCoroutine(cooldownCoroutine);
         }
-        cooldownCoroutine = StartCoroutine(Cooldown(2));
+        cooldownCoroutine = StartCoroutine(Cooldown(1));
 
         if(suckLeft > 0)
         {

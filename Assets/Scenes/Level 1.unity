@@ -1370,10 +1370,6 @@ PrefabInstance:
       propertyPath: vacuumEntrance
       value: 
       objectReference: {fileID: 1488440935}
-    - target: {fileID: 1227867821003715819, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1616875891678207804, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1418,17 +1414,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3032441931579962395, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7515666700176045930, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
       propertyPath: m_Name
       value: Circle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7515666700176045930, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
-      propertyPath: m_TagString
-      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae0aecfef8b143743a6a950ddb613b4d, type: 3}
@@ -2130,7 +2118,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8153866, y: 0.078592956}
+  m_Offset: {x: 0.79964364, y: 0.047107056}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2141,7 +2129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9085423, y: 0.45823598}
+  m_Size: {x: 0.87705636, y: 0.5212078}
   m_EdgeRadius: 0
 --- !u!212 &939514472
 SpriteRenderer:
@@ -3162,7 +3150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.0651, y: 6.1951904}
+  m_AnchoredPosition: {x: -2.01, y: 6.25}
   m_SizeDelta: {x: 987.9846, y: 563.9548}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297424182
@@ -4698,7 +4686,7 @@ MonoBehaviour:
   clockwiseButton: 118
   counterClockwiseButton: 99
   suckButton: 32
-  cooldownTimer: 0
+  cooldownTimer: 1
 --- !u!114 &2228988471774343890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6316,7 +6304,7 @@ MonoBehaviour:
   player2BallRespawnPoint: {fileID: 2036624098}
   timer: {fileID: 5065027141006238811}
   timeLeft: 0
-  startTime: 3
+  startTime: 60
   player1ScoreText: {fileID: 5065027141383960223}
   player2ScoreText: {fileID: 5065027140088138637}
   winScreen: {fileID: 1832212126}
