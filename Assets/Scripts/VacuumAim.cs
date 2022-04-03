@@ -7,6 +7,8 @@ public class VacuumAim : MonoBehaviour
     public Transform vacuum;
     public Transform vacuumEntrance;
 
+    public Transform vacuumEntrance2;
+
     float offset = -90;
     [SerializeField] private float rotSpeed = 3f;
 
@@ -115,8 +117,10 @@ public class VacuumAim : MonoBehaviour
             if(Input.GetKey(suckButton) && suckLeft > 0)
             {
                 BallControl bc = collisionInfo.GetComponent<BallControl>();
+                bc.player = this.gameObject.transform;
                 bc.isHeld = true;
                 holdingBall = true;
+                bc.vacuumEntrance = this.vacuumEntrance2;
             }
             else if(collisionInfo.GetComponent<BallControl>().isHeld == true)
             {

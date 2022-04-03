@@ -84,13 +84,15 @@ public class GameController : MonoBehaviour
 
     public void player1Scores()
     {
+        Debug.Log("Player 1 Scores");
+
         player1.transform.position = player1RespawnPoint.position;
         player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         player2.transform.position = player2RespawnPoint.position;
         player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
-        ball.transform.position = player1BallRespawnPoint.position;
+        ball.transform.position = player2BallRespawnPoint.position;
         ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         player1Score += 1;
@@ -100,6 +102,8 @@ public class GameController : MonoBehaviour
 
     public void player2Scores()
     {
+        Debug.Log("Player 2 Scores");
+
         player1.transform.position = player1RespawnPoint.position;
         player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 

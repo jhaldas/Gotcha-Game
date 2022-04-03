@@ -70,7 +70,6 @@ public class BallControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        Debug.Log("Bro");
         if(collisionInfo.gameObject.tag == "Player 1")
         {  
             gameController.player2Scores();
