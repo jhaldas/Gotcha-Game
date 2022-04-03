@@ -13,8 +13,28 @@ public class VacuumAim : MonoBehaviour
     public Transform center;
     public bool facingRight = true;
 
-    // Start is called before the first frame update
+    public Animator anim;
 
+    public float currentPoints = 0;
+    public float maxSuck = 5f;
+    public float suckLeft;
+    public float suckRegenRate;
+    public float suckDepletionRate;
+    public bool isSucking;
+    public Transform suckMeter;
+
+    public KeyCode clockwiseButton = KeyCode.V;
+    public KeyCode counterClockwiseButton = KeyCode.C;
+    public KeyCode suckButton = KeyCode.Space;
+    public Coroutine cooldownCoroutine;
+    public float cooldownTimer = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        isSucking = false;
+        suckLeft = maxSuck;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -27,13 +47,22 @@ public class VacuumAim : MonoBehaviour
         vacuum.rotation = val;
         */
 
+        if(Input.GetKey(suckButton))
+        {
+            DepleteSuck();
+        }
+        else
+        {
+            RegenSuck();
+        }
+
         if(Clockwise())
         {
-            vacuum.transform.Rotate(Vector3.forward * -rotSpeed);
+            vacuum.transform.Rotate(Vector3.forward * -rotSpeed * Time.deltaTime);
         }
         else if(CounterClockwise())
         {
-            vacuum.transform.Rotate(Vector3.forward *rotSpeed);
+            vacuum.transform.Rotate(Vector3.forward *rotSpeed * Time.deltaTime);
         }
         else
         {
@@ -49,13 +78,19 @@ public class VacuumAim : MonoBehaviour
             facingRight = false;
         }
 
-        Debug.Log("Vacuum X: " + vacuumEntrance.transform.position.x + " | " + "Center X: " + center.transform.position.x);
+        if(suckLeft < 0)
+        {
+            suckLeft = 0;
+        }
+        suckMeter.transform.localScale = new Vector3(1f, suckLeft/maxSuck);
+
+        //Debug.Log("Vacuum X: " + vacuumEntrance.transform.position.x + " | " + "Center X: " + center.transform.position.x);
     }
 
 
     bool Clockwise()
     {
-        if (Input.GetKey(KeyCode.V))
+        if (Input.GetKey(clockwiseButton))
         {
             return true;
         }
@@ -64,10 +99,75 @@ public class VacuumAim : MonoBehaviour
 
     bool CounterClockwise()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(counterClockwiseButton))
         {
             return true;
         }
         return false;
+    }
+
+    void OnTriggerStay2D(Collider2D collisionInfo)
+    {
+        if(collisionInfo.gameObject.tag == "Ball")
+        {
+            if(Input.GetKey(suckButton) && suckLeft > 0)
+            {
+                BallControl bc = collisionInfo.GetComponent<BallControl>();
+                bc.isHeld = true;
+            }
+            else if(collisionInfo.GetComponent<BallControl>().isHeld == true)
+            {
+                BallControl bc = collisionInfo.GetComponent<BallControl>();
+                bc.isHeld = false;
+                bc.launch = true;
+            }
+
+        }
+    }
+    public void RegenSuck()
+    {
+        if(cooldownTimer <= 0)
+        {
+            if(suckLeft < maxSuck)
+            {
+                suckLeft += suckRegenRate * Time.deltaTime;  
+            }
+            else
+            {
+                suckLeft = maxSuck;
+            }
+        }
+    }
+
+    public void DepleteSuck()
+    {
+        cooldownTimer = 3;
+        if(cooldownCoroutine != null)
+        {
+            StopCoroutine(cooldownCoroutine);
+        }
+        cooldownCoroutine = StartCoroutine(Cooldown(2));
+
+        if(suckLeft >= 0)
+        {
+            suckLeft -= suckDepletionRate * Time.deltaTime;  
+        }
+        else
+        {
+            suckLeft = 0;
+        }
+    }
+
+    private IEnumerator Cooldown(float duration)
+    {
+        print("Duration: " + duration);
+        while(duration > 0)
+        {
+            yield return new WaitForSeconds(1f);
+
+            duration--;
+
+            cooldownTimer = duration;
+        }
     }
 }

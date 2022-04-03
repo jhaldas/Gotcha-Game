@@ -9,12 +9,12 @@ public class BallControl : MonoBehaviour
     public Collider2D playerHitBox;
     public Vector3 launchVector;
     public Transform vacuumEntrance;
-    bool isHeld;
+    public bool isHeld;
     Vector3 offset;
-    bool launch = false;
+    public bool launch = false;
     public Rigidbody2D rb;
     [SerializeField] private float launchPower = .2f;
-    bool wasGrabbed = false;
+    public bool wasGrabbed = false;
     Collider2D thisCollider;
     public GameController gameController;
 
@@ -34,13 +34,13 @@ public class BallControl : MonoBehaviour
         {
             this.transform.position = vacuumEntrance.transform.position;
             //this.transform.rotation = vacuumEntrance.transform.rotation;
-            rb.isKinematic = true;
         }
         else
         {
             rb.gravityScale = 0;
-            rb.isKinematic = false;
         }
+
+
     }
     void FixedUpdate()
     {
@@ -51,7 +51,7 @@ public class BallControl : MonoBehaviour
             Launch(launchVector, launchPower);
         }
     }
-
+/*
     void OnTriggerStay2D(Collider2D collisionInfo)
     {
         Debug.Log("Bro");
@@ -62,11 +62,11 @@ public class BallControl : MonoBehaviour
         }
         else if(wasGrabbed == true)
         {
-            wasGrabbed = false;
             isHeld = false;
             launch = true;
         }
     }
+    */
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
