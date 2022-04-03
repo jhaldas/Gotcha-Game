@@ -1423,6 +1423,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5065027140107740546, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065027140107740546, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5065027140229857800, guid: 44f4aae6fcc3cb944bc7883f9d7732a7, type: 3}
       propertyPath: m_RootOrder
       value: 7
