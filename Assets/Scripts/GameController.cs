@@ -23,9 +23,11 @@ public class GameController : MonoBehaviour
     public Text timer;
 
     public int timeLeft;
-    public int startTime = 60;
+    public int startTime;
     public Text player1ScoreText;
     public Text player2ScoreText;
+    public GameObject winScreen;
+    public Text winScreenText;
 
 
     // Start is called before the first frame update
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
         gameStarted = false;
         gamePaused = false;
         Time.timeScale = 1;
+        timeLeft = startTime;
     }
 
     void Update()
@@ -61,7 +64,25 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 0;
 
+        winScreen.SetActive(true);
+
+        SoundManagerScript.PlaySound("gameEnd");
+
+        if(player1Score > player2Score)
+        {
+            winScreenText.text = "Player 1 Wins!";
+        }
+        else if(player2Score > player1Score)
+        {
+            winScreenText.text = "Player 2 Wins!";
+        }
+        else
+        {
+            winScreenText.text = "TIE!";
+        }
+        
     }
 
     private IEnumerator Countdown(float duration)
@@ -76,7 +97,7 @@ public class GameController : MonoBehaviour
 
             if(duration == 0)
             {
-
+                GameOver();
             }
 
         }
@@ -84,13 +105,15 @@ public class GameController : MonoBehaviour
 
     public void player1Scores()
     {
+        Debug.Log("Player 1 Scores");
+
         player1.transform.position = player1RespawnPoint.position;
         player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         player2.transform.position = player2RespawnPoint.position;
         player2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
-        ball.transform.position = player1BallRespawnPoint.position;
+        ball.transform.position = player2BallRespawnPoint.position;
         ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         player1Score += 1;
@@ -100,6 +123,8 @@ public class GameController : MonoBehaviour
 
     public void player2Scores()
     {
+        Debug.Log("Player 2 Scores");
+
         player1.transform.position = player1RespawnPoint.position;
         player1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 

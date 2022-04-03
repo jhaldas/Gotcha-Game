@@ -7,6 +7,8 @@ public class VacuumAim : MonoBehaviour
     public Transform vacuum;
     public Transform vacuumEntrance;
 
+    public Transform vacuumEntrance2;
+
     float offset = -90;
     [SerializeField] private float rotSpeed = 3f;
 
@@ -28,7 +30,7 @@ public class VacuumAim : MonoBehaviour
     public KeyCode counterClockwiseButton = KeyCode.C;
     public KeyCode suckButton = KeyCode.Space;
     public Coroutine cooldownCoroutine;
-    public float cooldownTimer = 2;
+    public float cooldownTimer = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -115,8 +117,10 @@ public class VacuumAim : MonoBehaviour
             if(Input.GetKey(suckButton) && suckLeft > 0)
             {
                 BallControl bc = collisionInfo.GetComponent<BallControl>();
+                bc.player = this.gameObject.transform;
                 bc.isHeld = true;
                 holdingBall = true;
+                bc.vacuumEntrance = this.vacuumEntrance2;
             }
             else if(collisionInfo.GetComponent<BallControl>().isHeld == true)
             {
@@ -145,15 +149,16 @@ public class VacuumAim : MonoBehaviour
 
     public void DepleteSuck()
     {
-        cooldownTimer = 2;
+        cooldownTimer = 1;
         if(cooldownCoroutine != null)
         {
             StopCoroutine(cooldownCoroutine);
         }
-        cooldownCoroutine = StartCoroutine(Cooldown(2));
+        cooldownCoroutine = StartCoroutine(Cooldown(1));
 
         if(suckLeft > 0)
         {
+            //SoundManagerScript.PlaySound("newSuck");
             suckLeft -= suckDepletionRate * Time.deltaTime;
             if(!holdingBall)
             {
@@ -165,6 +170,7 @@ public class VacuumAim : MonoBehaviour
         }
         else
         {
+            //SoundManagerScript.PlaySound("vacuumEmpty");
             anim.SetBool("isSucking", false);
             suckLeft = 0;
         }

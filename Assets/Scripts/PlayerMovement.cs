@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator anim;
 
+    public KeyCode leftKey;
+    public KeyCode rightKey;
+    public KeyCode jumpKey;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,13 +26,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(gameController.gameStarted == true){
             rb.gravityScale = 3;
-            if(Input.GetKey(KeyCode.A))
+            if(Input.GetKey(leftKey))
             {
                 horizontalMove = -1;
                 anim.SetBool("Running", true);
                 anim.SetBool("Idle", false);
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(rightKey))
             {
                 horizontalMove = 1;
                 anim.SetBool("Running", true);
@@ -41,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             }
         //horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(jumpKey))
             {
                 jump = true;
             }

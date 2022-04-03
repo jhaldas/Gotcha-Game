@@ -17,6 +17,7 @@ public class BallControl : MonoBehaviour
     public bool wasGrabbed = false;
     Collider2D thisCollider;
     public GameController gameController;
+    public float speedIncrease;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class BallControl : MonoBehaviour
         {
             rb.gravityScale = 0;
         }
+
+        launchPower = launchPower + speedIncrease * Time.deltaTime;
 
 
     }
@@ -70,13 +73,14 @@ public class BallControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        Debug.Log("Bro");
         if(collisionInfo.gameObject.tag == "Player 1")
         {  
+            SoundManagerScript.PlaySound("dead");
             gameController.player2Scores();
         }
         if(collisionInfo.gameObject.tag == "Player 2")
         {  
+            SoundManagerScript.PlaySound("dead");
             gameController.player1Scores();
         }
     }

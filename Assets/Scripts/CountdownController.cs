@@ -8,7 +8,9 @@ public class CountdownController : MonoBehaviour
     // Start is called before the first frame update
 
     public int countdownTime;
-    public Text countdownDisplay;
+
+    public GameObject countdownDisplay;
+    public Text countdownText;
 
     GameController gameController;
 
@@ -22,14 +24,14 @@ public class CountdownController : MonoBehaviour
     {
         while(countdownTime > 0)
         {
-            countdownDisplay.text = countdownTime.ToString();
+            countdownText.text = countdownTime.ToString();
 
             yield return new WaitForSeconds(1f);
 
             countdownTime--;
         }
 
-        countdownDisplay.text = "GO";
+        countdownText.text = "GO";
 
         yield return new WaitForSeconds(1f);
 
