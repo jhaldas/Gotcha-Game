@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public GameController gameController;
     public Rigidbody2D rb;
 
+    public Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,14 +25,19 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetKey(KeyCode.A))
             {
                 horizontalMove = -1;
+                anim.SetBool("Running", true);
+                anim.SetBool("Idle", false);
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 horizontalMove = 1;
+                anim.SetBool("Running", true);
             }
             else
             {
                 horizontalMove = 0;
+                anim.SetBool("Idle", true);
+                anim.SetBool("Running", false);
             }
         //horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
 
@@ -41,6 +48,23 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(horizontalMove, false, jump);
             jump = false;
+
+
+            if(rb.velocity.y > 0)
+            {
+                anim.SetBool("Ascending", true);
+                anim.SetBool("Descending", false);
+            }
+            else if(rb.velocity.y < 0)
+            {
+                anim.SetBool("Descending", true);
+                anim.SetBool("Ascending", false);
+            }
+            else if(rb.velocity.y == 0)
+            {
+                anim.SetBool("Descending", false);
+                anim.SetBool("Ascending", false);
+            }
         }
 
         else
