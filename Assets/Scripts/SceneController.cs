@@ -12,6 +12,8 @@ public class SceneController : MonoBehaviour
     public string level1 = "Level 1";
     public string level2 = "Level 2";
 
+    public string sceneName = "Menu";
+
     public void PlayGame()
     {
         SceneManager.LoadScene(levelSelect);
@@ -38,6 +40,10 @@ public class SceneController : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public string nameS(){
+        return SceneManager.GetActiveScene().name;
     }
 
 }
