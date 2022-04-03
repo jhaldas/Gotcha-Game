@@ -6,6 +6,7 @@ public class BallControl : MonoBehaviour
 {
 
     public Transform player;
+    public Collider2D playerHitBox;
     public Vector3 launchVector;
     public Transform vacuumEntrance;
     bool isHeld;
@@ -14,12 +15,15 @@ public class BallControl : MonoBehaviour
     public Rigidbody2D rb;
     [SerializeField] private float launchPower = .2f;
     bool wasGrabbed = false;
+    Collider2D thisCollider;
+    public GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
         isHeld = false;
         rb = this.GetComponent<Rigidbody2D>();
+        thisCollider = this.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -30,11 +34,12 @@ public class BallControl : MonoBehaviour
         {
             this.transform.position = vacuumEntrance.transform.position;
             //this.transform.rotation = vacuumEntrance.transform.rotation;
-            rb.gravityScale = 0;
+            rb.isKinematic = true;
         }
         else
         {
             rb.gravityScale = 0;
+            rb.isKinematic = false;
         }
     }
     void FixedUpdate()
@@ -63,11 +68,16 @@ public class BallControl : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision collisionInfo)
+    void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        if(collisionInfo.gameObject.tag == "VacuumHitbox")
+        Debug.Log("Bro");
+        if(collisionInfo.gameObject.tag == "Player 1")
         {  
-            isHeld = false;
+            gameController.player2Scores();
+        }
+        if(collisionInfo.gameObject.tag == "Player 2")
+        {  
+            gameController.player1Scores();
         }
     }
 
