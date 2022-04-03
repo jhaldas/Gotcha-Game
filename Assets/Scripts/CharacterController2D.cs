@@ -127,6 +127,7 @@ public class CharacterController2D : MonoBehaviour
 		if (m_Grounded && jump)
 		{
 			// Add a vertical force to the player.
+			SoundManagerScript.PlaySound("jump");
 			Vector2 temp = new Vector3(m_Rigidbody2D.velocity.x, 0);
 			m_Rigidbody2D.velocity = temp;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));

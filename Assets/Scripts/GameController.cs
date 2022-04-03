@@ -68,6 +68,8 @@ public class GameController : MonoBehaviour
 
         winScreen.SetActive(true);
 
+        SoundManagerScript.PlaySound("gameEnd");
+
         if(player1Score > player2Score)
         {
             winScreenText.text = "Player 1 Wins!";

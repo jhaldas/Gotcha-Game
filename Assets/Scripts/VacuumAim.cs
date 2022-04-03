@@ -158,6 +158,7 @@ public class VacuumAim : MonoBehaviour
 
         if(suckLeft > 0)
         {
+            //SoundManagerScript.PlaySound("newSuck");
             suckLeft -= suckDepletionRate * Time.deltaTime;
             if(!holdingBall)
             {
@@ -169,6 +170,7 @@ public class VacuumAim : MonoBehaviour
         }
         else
         {
+            //SoundManagerScript.PlaySound("vacuumEmpty");
             anim.SetBool("isSucking", false);
             suckLeft = 0;
         }

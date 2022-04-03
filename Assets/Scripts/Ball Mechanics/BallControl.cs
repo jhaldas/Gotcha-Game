@@ -75,10 +75,12 @@ public class BallControl : MonoBehaviour
     {
         if(collisionInfo.gameObject.tag == "Player 1")
         {  
+            SoundManagerScript.PlaySound("dead");
             gameController.player2Scores();
         }
         if(collisionInfo.gameObject.tag == "Player 2")
         {  
+            SoundManagerScript.PlaySound("dead");
             gameController.player1Scores();
         }
     }

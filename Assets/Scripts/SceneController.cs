@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
     public string level1 = "Level 1";
     public string level2 = "Level 2";
 
-    public string sceneName = "Menu";
+    public string credits = "Credits";
 
     public void PlayGame()
     {
@@ -22,7 +22,6 @@ public class SceneController : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(menu);
-
     }
 
     public void Options()
@@ -36,6 +35,10 @@ public class SceneController : MonoBehaviour
     public void Level2()
     {
         SceneManager.LoadScene(level2);
+    }
+    public void Credits()
+    {
+        SceneManager.LoadScene(credits);
     }
     public void Exit()
     {
