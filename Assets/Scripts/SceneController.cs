@@ -30,7 +30,9 @@ public class SceneController : MonoBehaviour
     }
     public void Level1()
     {
+        Debug.Log("Loading Level 1");
         SceneManager.LoadScene(level1);
+        
     }
     public void Level2()
     {

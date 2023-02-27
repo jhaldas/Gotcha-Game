@@ -93,7 +93,7 @@ TextureImporter:
       213: -1051824335271589892
     second: BoardScroll-Sheet_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +153,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -167,6 +169,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
@@ -820,6 +846,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BoardScroll-Sheet_17: -2876947843944016147
+      BoardScroll-Sheet_18: -4744008273409093957
+      BoardScroll-Sheet_7: 1956690390829233131
+      BoardScroll-Sheet_15: 9068047568923623576
+      BoardScroll-Sheet_28: 7153154953336503064
+      BoardScroll-Sheet_26: 1373609069941356896
+      BoardScroll-Sheet_29: -1051824335271589892
+      BoardScroll-Sheet_2: -1147112289980201843
+      BoardScroll-Sheet_19: -240675020428070598
+      BoardScroll-Sheet_5: 2016362179769518287
+      BoardScroll-Sheet_11: 791695018170265221
+      BoardScroll-Sheet_24: 8571728637371984270
+      BoardScroll-Sheet_9: -1329774451288410293
+      BoardScroll-Sheet_16: -6178474512076460797
+      BoardScroll-Sheet_23: 6160358628166369840
+      BoardScroll-Sheet_27: -1185248169784559154
+      BoardScroll-Sheet_21: 2982395812765010337
+      BoardScroll-Sheet_4: -7002312915930206671
+      BoardScroll-Sheet_12: -6434614446284205040
+      BoardScroll-Sheet_8: 8092362850988489469
+      BoardScroll-Sheet_1: -87891571641828269
+      BoardScroll-Sheet_14: -6032039094793385080
+      BoardScroll-Sheet_25: 7102897634005279734
+      BoardScroll-Sheet_20: -8503380778542211010
+      BoardScroll-Sheet_3: 8725375910811926269
+      BoardScroll-Sheet_0: 6677533249221999717
+      BoardScroll-Sheet_13: 7984535725672087635
+      BoardScroll-Sheet_10: 8793847058754692108
+      BoardScroll-Sheet_22: 7804449621903915783
+      BoardScroll-Sheet_6: 9133050861681715157
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
